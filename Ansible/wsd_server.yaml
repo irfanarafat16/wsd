@@ -1,0 +1,21 @@
+---
+- name: Web Servers Install
+  hosts: wsd
+  vars:
+     pack_name: ntp
+  tasks:
+    - name: install {{pack_name}} package
+	  apt:
+        name: "{{pack_name}}"
+        state: latest
+		update_cache: yes
+    - name: Start {{pack_name}} Server
+      service:
+        name: "{{pack_name}}"
+        state: started
+        enabled: yes
+    - name: Copy configuration file
+      copy:
+        src: ntpd.conf
+        dest: /etc/ntpd.conf
+        mode: '0755'
