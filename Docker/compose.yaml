@@ -1,7 +1,7 @@
 services:
 
   nginx:
-    image: nginx:alpine
+    image: mynginx_image
     container_name: web1
     ports:
       - "80:80"
