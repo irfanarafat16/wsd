@@ -1,0 +1,22 @@
+services:
+
+  nginx:
+    image: nginx:alpine
+    container_name: web1
+    ports:
+      - "80:80"
+    volumes:
+      - nginxtest:/var/log/nginx
+    networks:
+      frontend:
+        ipv4_address: 172.15.0.2
+
+
+
+volumes:
+  nginxtest:
+    external: true
+
+networks:
+  frontend:
+    external: true
