@@ -9,7 +9,7 @@ services:
       - nginxtest:/var/log/nginx
     networks:
       frontend:
-        ipv4_address: 172.15.0.2
+        ipv4_address: 172.20.8.2
 
 
 
